@@ -60,12 +60,16 @@ where c.ct is not null
 --которые взяли в аренду за всё время наибольшее количество фильмов
 
 
+<<<<<<< HEAD
+
+=======
 select concat(first_name, ' ', last_name) "Фамилия и имя покупателя", count(payment_id) "Количество фильмов"
 from payment p
 left join customer c on p.customer_id = c.customer_id 
 group by c.customer_id
 order by 2 desc
 limit 5
+>>>>>>> ca1b1b62bffc83f1eb0084f21dcfd9b430c67ff7
 
 
 --ЗАДАНИЕ №4
@@ -75,6 +79,9 @@ limit 5
 --  3. минимальное значение платежа за аренду фильма
 --  4. максимальное значение платежа за аренду фильма
 
+<<<<<<< HEAD
+
+=======
 select concat(last_name, ' ', first_name) "Фамилия и имя покупателя",
 count(payment_id) "Количество фильмов",
 round(sum(amount)) "Общая стоимость платежей",
@@ -83,6 +90,7 @@ max(amount) "Максимальная стоимость платежа"
 from payment p
 left join customer c on p.customer_id = c.customer_id 
 group by 1
+>>>>>>> ca1b1b62bffc83f1eb0084f21dcfd9b430c67ff7
 
 
 
@@ -90,12 +98,17 @@ group by 1
 --Используя данные из таблицы городов, составьте все возможные пары городов так, чтобы 
 --в результате не было пар с одинаковыми названиями городов. Решение должно быть через Декартово произведение.
  
+<<<<<<< HEAD
+
+
+=======
 -- Если я понял правильно, то так:
 
 SELECT a.city AS city1, b.city AS city2
 FROM city a
 CROSS JOIN city b
 WHERE a.city_id <> b.city_id and a.city_id < b.city_id
+>>>>>>> ca1b1b62bffc83f1eb0084f21dcfd9b430c67ff7
 
 
 --ЗАДАНИЕ №6
@@ -103,11 +116,15 @@ WHERE a.city_id <> b.city_id and a.city_id < b.city_id
 --дате возврата (поле return_date), вычислите для каждого покупателя среднее количество 
 --дней, за которые он возвращает фильмы. В результате должны быть дробные значения, а не интервал.
  
+<<<<<<< HEAD
+
+=======
 select customer_id "ID покупателя",
 round(avg(extract(epoch from (return_date - rental_date)) / 86400.0), 2) "Среднее количество дней на возврат"
 from rental r 
 group by customer_id
 order by customer_id
+>>>>>>> ca1b1b62bffc83f1eb0084f21dcfd9b430c67ff7
 
 
 
